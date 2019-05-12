@@ -1,0 +1,4 @@
+﻿- naprawiony błąd z handlem u Silasa
+- dodana umiejętność patroszenia owadów (do nauczenia u Snafa)
+- dodane gotowanie
+- dodana umiejętność zdobywania sadła kretoszczurów (do nauczenia u Aidana i Draxa)

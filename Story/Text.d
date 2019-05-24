@@ -275,8 +275,8 @@ CONST STRING TXT_TALENTS [NPC_TALENT_MAX] =
 	"Kradzie¿",
 	"Magia",
 	"Skradanie siê",
-	"Regeneracja",
-	"Mistrz ognia",
+	"Górnictwo",
+	"Alchemia",
 	"Akrobatyka"
 };
 
@@ -310,8 +310,8 @@ CONST STRING TXT_TALENTS_SKILLS [NPC_TALENT_MAX] =
 	"brak|adept|mistrz",								//NPC_TALENT_PICKPOCKET
 	"brak|Kr¹g 1|Kr¹g 2|Kr¹g 3|Kr¹g 4|Kr¹g 5|Kr¹g 6",	//NPC_TALENT_MAGE         
 	"Nie|Tak",                                          //NPC_TALENT_SNEAK       
-	"|",                                      		    //NPC_TALENT_REGENERATE 
-	"|",                                          		//NPC_TALENT_FIREMASTER   
+	"Nie|Tak",                                      	//NPC_TALENT_REGENERATE 
+	"Nie|Tak",                                          //NPC_TALENT_FIREMASTER   
 	"Nie|Tak"                                           //NPC_TALENT_ACROBAT      
 };
 

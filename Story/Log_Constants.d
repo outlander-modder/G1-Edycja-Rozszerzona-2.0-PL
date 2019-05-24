@@ -35,6 +35,9 @@ const string	GE_TeacherOW			=	"Niezale¿ny nauczyciel";
 
 const string	GE_AnimalTrophies		=	"Oprawianie zwierzyny";
 
+//  Mod
+const string	GE_TeacherOM			=	"Nauczyciel w Starej Kopalni";
+
 //---------------------------------------------------------------------
 //	KAPITEL 1
 //---------------------------------------------------------------------

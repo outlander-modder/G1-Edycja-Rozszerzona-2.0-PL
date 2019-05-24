@@ -137,4 +137,66 @@ FUNC VOID Info_Swiney_PERM_Info()
 	AI_StopProcessInfos	(self);
 };
 
+instance  Swiney_START_LEARN (C_INFO)
+{
+	npc					= SfB_1037_Swiney;
+	condition			= Swiney_START_LEARN_Condition;
+	information		= Swiney_START_LEARN_Info;
+	important			= 0;
+	permanent		= 1;
+	nr 					= 800;
+	description		= "Naucz mnie kopaæ rudê (5 punktów nauki)."; 
+};
 
+FUNC int  Swiney_START_LEARN_Condition()
+{	
+		if (Npc_GetTalentSkill(hero, NPC_TALENT_REGENERATE) == 0) && (Npc_KnowsInfo(hero,Info_Swiney_Hello))
+		{
+		return 1;
+		};
+};
+
+FUNC void  Swiney_START_LEARN_Info()
+{
+	AI_Output (other, self,"Swiney_START_LEARN_Info_15_01"); //Naucz mnie kopaæ rudê.
+	if ((hero.lp >=5))
+	{
+	if (Npc_GetTrueGuild(other) == GIL_SFB)
+	{
+	AI_Output (self, other,"Swiney_START_LEARN_Info_04_02"); //Pocz¹tki nie s¹ zbyt trudne. Musisz umieæ odpowiednio uderzyæ. 
+	AI_Output (self, other,"Swiney_START_LEARN_Info_04_03"); //Najwa¿niejsza jest rozwaga. WIelu górników zginê³o przyciœniêtych przez ska³y, bo uderzali zbyt mocno.
+	AI_Output (self, other,"Swiney_START_LEARN_Info_04_04"); //Z kolei inni kopali dniami i nocami bez rezultatu, bo uderzali zbyt s³abo lub kopali w nieodpowiednim miejscu.
+	AI_Output (self, other,"Swiney_START_LEARN_Info_04_05"); //Uderzaj kilka razy lekko, aby zbadaæ ska³ê i nieco j¹ rozbiæ. Potem uderz silnie lub nawet bardzo silnie.
+	AI_Output (self, other,"Swiney_START_LEARN_Info_04_06"); //Je¿eli bêdziesz mia³ trochê szczêœcia szybko wydobêdziesz bry³ki.
+	AI_Output (self, other,"Swiney_START_LEARN_Info_04_07"); //Jeszcze jedno, pamiêtaj, ¿e ka¿da ¿y³a rudy kiedyœ siê skoñczy.
+	hero.lp = hero.lp - 5;
+	Npc_SetTalentSkill(hero, NPC_TALENT_REGENERATE, 1);
+	PrintScreen	("Nowa umiejêtnoœæ: Górnictwo", -1,-1,"FONT_OLD_20_WHITE.tga",2);
+	//PrintS_Ext ("Nowa umiejêtnoœæ: Górnictwo",COL_Lime);
+	}
+	else
+	{
+	if (Npc_HasItems (hero, ItMiNugget)>=50)
+	{
+	AI_Output (self, other,"Swiney_START_LEARN_Info_04_02"); //Pocz¹tki nie s¹ zbyt trudne. Musisz umieæ odpowiednio uderzyæ. 
+	AI_Output (self, other,"Swiney_START_LEARN_Info_04_03"); //Najwa¿niejsza jest rozwaga. WIelu górników zginê³o przyciœniêtych przez ska³y, bo uderzali zbyt mocno.
+	AI_Output (self, other,"Swiney_START_LEARN_Info_04_04"); //Z kolei inni kopali dniami i nocami bez rezultatu, bo uderzali zbyt s³abo lub kopali w nieodpowiednim miejscu.
+	AI_Output (self, other,"Swiney_START_LEARN_Info_04_05"); //Uderzaj kilka razy lekko, aby zbadaæ ska³ê i nieco j¹ rozbiæ. Potem uderz silnie lub nawet bardzo silnie.
+	AI_Output (self, other,"Swiney_START_LEARN_Info_04_06"); //Je¿eli bêdziesz mia³ trochê szczêœcia szybko wydobêdziesz bry³ki.
+	AI_Output (self, other,"Swiney_START_LEARN_Info_04_07"); //Jeszcze jedno, pamiêtaj, ¿e ka¿da ¿y³a rudy kiedyœ siê skoñczy.
+	B_GiveInvItems (other,self, itminugget, 50);
+	hero.lp = hero.lp - 5;
+	Npc_SetTalentSkill(hero, NPC_TALENT_REGENERATE, 1);
+	PrintScreen	("Nowa umiejêtnoœæ: Górnictwo", -1,-1,"FONT_OLD_20_WHITE.tga",2);
+	}
+	else
+	{
+	AI_Output (self, other,"Swiney_START_LEARN_Info_04_08"); //Nauka kosztuje 50 bry³ek!
+	};
+	};
+	}
+	else
+	{
+	AI_Output (self, other,"Swiney_START_LEARN_Info_04_09"); //Brakuje ci doœwiadczenia!
+	};
+};
